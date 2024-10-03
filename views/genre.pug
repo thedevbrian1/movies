@@ -1,0 +1,14 @@
+doctype html 
+html 
+    head 
+        title= title 
+    body 
+        h1= title
+        ul 
+            each val in data.results
+                li 
+                    article 
+                        p= val.title 
+                        img(src=`https://image.tmdb.org/t/p/w500${val.poster_path}`)
+                        p= val.release_date 
+                        p #{Number(val.vote_average.toFixed(1))}

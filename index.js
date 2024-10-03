@@ -33,7 +33,55 @@ app.get("/", async (req, res) => {
   let movies = await moviesRes.json();
   console.log({ movies });
 
-  res.render("index", { data: movies });
+  let selectedMovies = movies.results.slice(0, 10);
+  console.log({ selectedMovies });
+
+  let trendingMovies = movies.results.filter(
+    (movie) => movie.vote_average > 7.5
+  );
+  console.log({ trendingMovies });
+
+  res.render("index", { data: selectedMovies, trendingMovies });
+});
+
+// Genre route
+app.get("/genres/:genre", async (req, res) => {
+  let genre = req.params.genre;
+
+  // Get genre id
+  let genreRes = await fetch("https://api.themoviedb.org/3/genre/movie/list", {
+    headers: {
+      accept: "application/json",
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkY2E1ODczYjUyYjAzNzgzMzc2NWI3OTFhZTIxODMyZCIsIm5iZiI6MTcyNzc3NjA5NS45ODIwMDgsInN1YiI6IjY1ZjAwYWRhMWY3NDhiMDE4NDUxYTY0NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.aThUPYHK0-cR2YfLIPFSBftS6V6g1FgRJTdXeiZ3D4Q",
+    },
+  });
+  let genreIds = await genreRes.json();
+  // console.log({ genreIds });
+
+  let matchingGenre = genreIds.genres.find(
+    (item) => item.name.toLowerCase() === genre.toLowerCase()
+  );
+  console.log({ matchingGenre });
+
+  let genreId = matchingGenre.id;
+
+  // Get movies with the genre id
+
+  let moviesRes = await fetch(
+    `https://api.themoviedb.org/3/discover/movie?with_genres=${genreId}`,
+    {
+      headers: {
+        accept: "application/json",
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkY2E1ODczYjUyYjAzNzgzMzc2NWI3OTFhZTIxODMyZCIsIm5iZiI6MTcyNzc3NjA5NS45ODIwMDgsInN1YiI6IjY1ZjAwYWRhMWY3NDhiMDE4NDUxYTY0NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.aThUPYHK0-cR2YfLIPFSBftS6V6g1FgRJTdXeiZ3D4Q",
+      },
+    }
+  );
+
+  let movies = await moviesRes.json();
+  console.log({ movies });
+  res.render("genre", { data: movies, title: genre });
 });
 
 app.listen(port, () => {
