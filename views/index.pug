@@ -1,0 +1,17 @@
+doctype html 
+html 
+    head 
+        link(rel="stylesheet", href="output.css")
+        title Movies 
+    body 
+        h1(class="text-red-500") Movies
+        //- Hero
+        //- Links
+        ul 
+            each val in data.results
+                li 
+                    article 
+                        p= val.title 
+                        img(src=`https://image.tmdb.org/t/p/w500${val.poster_path}`)
+                        p= val.release_date 
+                        p= val.vote_average
