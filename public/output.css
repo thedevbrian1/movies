@@ -603,38 +603,23 @@ video {
   border-color: rgb(249 115 22 / var(--tw-border-opacity));
 }
 
-.bg-black\/50 {
-  background-color: rgb(0 0 0 / 0.5);
+.bg-\[\#000217\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 2 23 / var(--tw-bg-opacity));
 }
 
-.bg-black\/40 {
-  background-color: rgb(0 0 0 / 0.4);
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
 .bg-black\/30 {
   background-color: rgb(0 0 0 / 0.3);
 }
 
-.bg-\[\#000217\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 2 23 / var(--tw-bg-opacity));
-}
-
 .bg-orange-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(249 115 22 / var(--tw-bg-opacity));
-}
-
-.bg-\[url\(https\:\/\/image\.tmdb\.org\/t\/p\/w500\$\{data\[0\]\.poster_path\}\)\] {
-  background-image: url(https://image.tmdb.org/t/p/w500${data[0].poster_path});
-}
-
-.bg-\[url\(\'https\:\/\/image\.tmdb\.org\/t\/p\/w500\$\{data\[0\]\.poster_path\}\'\)\] {
-  background-image: url('https://image.tmdb.org/t/p/w500${data[0].poster_path}');
-}
-
-.bg-\[url\(\'https\:\/\/encrypted-tbn0\.gstatic\.com\/images\?q\=tbn\:ANd9GcSR3TCSVNySF9FqR8f-H3d1MroGL89YJg-97w\&s\'\)\] {
-  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR3TCSVNySF9FqR8f-H3d1MroGL89YJg-97w&s');
 }
 
 .bg-\[url\(\'https\:\/\/wallpapercave\.com\/wp\/wp13416984\.jpg\'\)\] {
@@ -659,10 +644,6 @@ video {
   padding-bottom: 0.75rem;
 }
 
-.text-center {
-  text-align: center;
-}
-
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
@@ -672,19 +653,14 @@ video {
   font-weight: 700;
 }
 
-.text-red-500 {
+.text-black {
   --tw-text-opacity: 1;
-  color: rgb(239 68 68 / var(--tw-text-opacity));
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-black {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .bg-blend-overlay {
